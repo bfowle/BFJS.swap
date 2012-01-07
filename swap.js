@@ -5,21 +5,21 @@ var BFJS = this.BFJS = {};
  * 
  * Fade old element out, new element in, with varying options
  * 
- * @namespace	BFJS
+ * @namespace   BFJS
  * 
- * @oldEl		element to hide
- * @newEl		element to show
- * @options		Object
- *				|-hideOld		display:none the hide element
- * 				|-hideNew		display:block+opacity:0 the new element to fade in
- * 				|-durOld		duration of hide element
- * 				'-durNew		duration of show element
+ * @oldEl       element to hide
+ * @newEl       element to show
+ * @options     Object
+ *              |-hideOld       display:none the hide element
+ *              |-hideNew       display:block+opacity:0 the new element to fade in
+ *              |-durOld        duration of hide element
+ *              '-durNew        duration of show element
  *
- * @returns		Function
+ * @returns     Function
  *
- * @usage		BFJS.swap(el1, el2);
- *				BFJS.swap(el1, el2, {hideOld: false, hideNew: false});
- *				BFJS.swap(el1, el2, {durOld: 300, durNew: 800});
+ * @usage       BFJS.swap(el1, el2);
+ *              BFJS.swap(el1, el2, {hideOld: false, hideNew: false});
+ *              BFJS.swap(el1, el2, {durOld: 300, durNew: 800});
  */
 BFJS.swap = (function() {
 	return function(oldEl, newEl, options) {
