@@ -36,42 +36,42 @@ BFJS.swap = (function() {
 			/**
 			 * offFunction
 			 */
-			offFunction = function(el, fn) {
-				el.set('morph', {duration: options.durOld})
-					.morph({'opacity': 0})
-					.get('morph')
-					.chain(function() {
-						if (options.hideOld) el.setStyle('display', 'none');
-					});
-			},
+			offFunction = (function() {
+				return function(el, fn) {
+					el.set('morph', {duration: options.durOld})
+						.morph({'opacity': 0})
+						.get('morph')
+						.chain(function() {
+							if (options.hideOld) el.setStyle('display', 'none');
+						});
+				};
+			})(),
 			/**
 			 * onFunction
 			 */
-			onFunction = function(el, fn) {
-				if (options.hideNew) {
-					el.setStyles({
-						'display': 'block',
-						'opacity': 0
-					});
-				}
-				el.set('morph', {duration: options.durNew || 500})
-					.morph({'opacity': 1});
-			};
-			
-		if (typeOf(oldEl) == 'elements') {
-			oldEl.each(function(el) {
+			onFunction = (function() {
+				return function(el, fn) {
+					if (options.hideNew) {
+						el.setStyles({
+							'display': 'block',
+							'opacity': 0
+						});
+					}
+					el.set('morph', {duration: options.durNew || 500})
+						.morph({'opacity': 1});
+				};
+			})();
+		
+		if (typeOf(oldEl) != 'null') {
+			Array.from(oldEl).each(function(el) {
 				offFunction(el);
 			});
-		} else if (typeOf(oldEl) == 'element') {
-			offFunction(oldEl);
 		}
 		
-		if (typeOf(newEl) == 'elements') {
-			newEl.each(function(el) {
+		if (typeOf(newEl) != 'null') {
+			Array.from(newEl).each(function(el) {
 				onFunction(el);
 			});
-		} else if (typeOf(newEl) == 'element') {
-			onFunction(newEl);
 		}
 	};
 })();
