@@ -1,3 +1,5 @@
+(function() {
+
 var BFJS = this.BFJS = {};
 
 /**
@@ -74,4 +76,6 @@ BFJS.swap = (function() {
 			});
 		}
 	};
+})();
+
 })();
