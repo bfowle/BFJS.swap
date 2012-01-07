@@ -28,10 +28,10 @@ BFJS.swap = (function() {
 			 * options
 			 */
 			options = {
-				hideOld: options.hideOld || true,
-				hideNew: options.hideNew || true,
-				durOld:	options.durOld || 500,
-				durNew: options.durNew || 500
+				hideOld: typeOf(options.hideOld) != 'null' ? options.hideOld : true,
+				hideNew: typeOf(options.hideNew) != 'null' ? options.hideNew : true,
+				durOld:	typeOf(options.durOld) != 'null' ? options.durOld : 500,
+				durNew: typeOf(options.durNew) != 'null' ? options.durNew : 500
 			},
 			/**
 			 * offFunction
